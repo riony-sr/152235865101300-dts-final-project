@@ -1,23 +1,20 @@
-import axios from 'axios'
-import qs from 'qs'
+import axios from "axios";
 
-import {APP_URL} from '../../resources/config'
+import { APP_URL } from "../../resources/config";
 
+const url = APP_URL.concat("valuation");
 
-
-const url = APP_URL.concat('valuation')
-
-export const getCommentById = (id)=>{
+export const getCommentById = (id) => {
   return {
-    type: 'GET_COMMENT_BY_ID',
-    payload: axios.get(url.concat(`/${id}`))
-  }
-}
- 
-export const postComment = (rating,review,item_id,user_id)=>{
-  console.log(rating,review,item_id,user_id)
+    type: "GET_COMMENT_BY_ID",
+    payload: axios.get(url.concat(`/${id}`)),
+  };
+};
+
+export const postComment = (rating, review, item_id, user_id) => {
+  console.log(rating, review, item_id, user_id);
   return {
-    type: 'POST_COMMENT',
-    payload: axios.post(url.concat(`/`),{rating,review,item_id,user_id})
-  }
-}
+    type: "POST_COMMENT",
+    payload: axios.post(url.concat(`/`), { rating, review, item_id, user_id }),
+  };
+};
